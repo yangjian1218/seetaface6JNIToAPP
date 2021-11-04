@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdk 30
+    buildToolsVersion '30.0.2'
+//    aaptOptions.cruncherEnabled = false
+//    aaptOptions.useNewCruncher = false
+    defaultConfig {
+        applicationId "com.ylz.seetaface"
+        minSdk 24
+        targetSdk 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11 -frtti -fexceptions -static-openmp"
+                arguments "-DANDROID_STL=c++_static"
+                abiFilters "armeabi-v7a"
+            }
+        }
+        ndk {
+            abiFilters "armeabi-v7a"     //可以只生成一个 一般为armeabi-v7a其他为"arm64-v8a"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.10.2'
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+    sourceSets {
+        main {
+//            jniLibs.srcDirs = ['libs']
+
+//            jniLibs.srcDirs = ['/src/main/cpp/seetaface6/jniLibs']
+            jniLibs.srcDirs = ['/src/main/jniLibs']
+        }
+    }
+//    ndkVersion '16.1.4479499'
+    ndkVersion '21.3.6528147'
+//    ndkVersion '23.0.7599858'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}

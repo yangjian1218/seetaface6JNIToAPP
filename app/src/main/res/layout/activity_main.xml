@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_alignParentBottom="true"-->
+        <!--        android:orientation="horizontal">-->
+
+        <Button
+            android:id="@+id/btn_select_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="选择图片"></Button>
+
+        <Button
+            android:id="@+id/btn_detect_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="人脸检测"></Button>
+        <Button
+            android:id="@+id/btn_landmark68"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="特征检测"></Button>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_live_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="活体检测"></Button>
+        <Button
+            android:id="@+id/btn_eyeState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="睁眼检测"></Button>
+        <Button
+            android:id="@+id/btn_mask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="口罩检测"></Button>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_faceMask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="遮挡检测"></Button>
+        <Button
+            android:id="@+id/btn_gender_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="性别/年龄"></Button>
+        <Button
+            android:id="@+id/btn_qualityIntegrity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="完整性评估"></Button>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_clarity_bright"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="清晰/亮度"></Button>
+        <Button
+            android:id="@+id/btn_resolution"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分辨率评估"></Button>
+        <Button
+            android:id="@+id/btn_qulityPose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姿态评估"></Button>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_image"
+        android:layout_width="match_parent"
+        android:layout_height="435dp"
+        android:layout_weight="1" />
+
+
+    <TextView
+        android:id="@+id/output_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人脸信息:"
+        android:textSize="20sp"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</LinearLayout>
